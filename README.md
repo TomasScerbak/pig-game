@@ -24,8 +24,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/TomasScerbak/suite-landing-page.git]
-- Live Site URL: [https://tomasscerbak.github.io/suite-landing-page/]
+- Solution URL: [https://github.com/TomasScerbak/pig-game.git]
+- Live Site URL: [https://tomasscerbak.github.io/pig-game/]
 
 ## My process
 
