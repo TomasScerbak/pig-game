@@ -1,6 +1,4 @@
-# Frontend Mentor - Suite landing page solution
-
-This is a solution to the [Suite landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/suite-landing-page-tj_eaU-Ra). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+# PIG GAME - SCORE 100 and WIN!
 
 ## Table of contents
 
@@ -19,8 +17,10 @@ This is a solution to the [Suite landing page challenge on Frontend Mentor](http
 
 Users should be able to:
 
-- View the optimal layout depending on their device's screen size
-- See hover states for interactive elements
+- Play game with other player
+- Roll the dice to generate random number 1-6
+- Hold the total score
+- Reset whole game
 
 ### Links
 
@@ -32,83 +32,51 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- SASS / SCSS custom properties
+- CSS
 - Flexbox
-- Mobile-first workflow
+- Desktop only
+- JavaScript
 
 ### What I learned
 
-This is my first project build by SCSS language and systax. I've learned how to create different files with variables, functions, typography, resets and import them to main css file. I was using @include syntax, created functions for different flexbox leyaouts and variables for different font sizes.
+I learned how to create helper functions to keep DRY principle. Learned the logic how to switch bewteen states depending on game status. How to manipulate with DOM elements, updating them and adding functionalities.
 
-From the HTML persective, I learned to provide to user different img quality depending on device using WEBP format and @2x formats for RETINA displey.
+```js
+//Helper function to switch players
+const switchPlayer = function() {
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
 
-To see how you can add code snippets, see below:
-
-```html
-            <picture>
-              <source
-                type="image/webp"
-                media="(min-width: 600px)"
-                srcset="
-                  images/image-hero-portrait.png     1x,
-                  images/image-hero-portrait.webp    1x,
-                  images/image-hero-portrait@2x.png  2x,
-                  images/image-hero-portrait@2x.webp 2x
-                "
-              />
-              <source
-                type="image/webp"
-                media="(min-width: 300px)"
-                srcset="
-                  images/image-hero-landscape.png     1x,
-                  images/image-hero-landscape.webp    1x,
-                  images/image-hero-landscape@2x.png  2x,
-                  images/image-hero-landscape@2x.webp 2x
-                "
-              />
-              <img
-                class="phone__image"
-                src="images/image-hero-landscape.webp"
-                alt="picture of apple phone"
-              />
-            </picture>
-```
-```css
-@function weight($weight-name) {
-  @return map-get($font-weights, $weight-name);
+    playerOne.classList.toggle('player--active');
+    playerTwo.classList.toggle('player--active');
 }
 
-@mixin flexCenter($direction) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: $direction;
-}
+//Helper function to restart/initialize the game
+const initGame = function() {
 
-@mixin flexEnd($direction) {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: $direction;
-}
+    scores = [0, 0];
+    currentScore = 0;
+    activePlayer = 0;
+    playing = true;
 
-@mixin flexSpaceBetween {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    score0.textContent = 0;
+    score1.textContent = 0;
+    currentScore0.textContent = 0;
+    currentScore1.textContent = 0;
 
-@mixin flexSpaceEvenly {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+    dice.classList.add('hidden');
+    playerOne.classList.remove('player--winner');
+    playerTwo.classList.remove('player--winner');
+    playerOne.classList.add('player--active');
+    playerTwo.classList.remove('player--active');
 }
 
 ```
 
 ### Continued development
 
-from now on I will be practicing SASS syntax and try to use best practices to learn clean maintainable code.
+creating as much projects as possible with JavaScript
 
 ## Author
 
