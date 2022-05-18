@@ -14,11 +14,7 @@ const holdButton = document.querySelector('.btn--hold');
 const playerOne = document.querySelector('.player--0');
 const playerTwo = document.querySelector('.player--1');
 
-// Starting Conditions
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+let scores, currentScore, activePlayer, playing;
 
 //Helper function to switch players
 const switchPlayer = function() {
@@ -32,6 +28,11 @@ const switchPlayer = function() {
 
 //Helper function to restart/initialize the game
 const initGame = function() {
+
+    scores = [0, 0];
+    currentScore = 0;
+    activePlayer = 0;
+    playing = true;
 
     score0.textContent = 0;
     score1.textContent = 0;
